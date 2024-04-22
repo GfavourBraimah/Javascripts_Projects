@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Auto Text Effect </title>
+    <style>
+        body{
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            height: 100vh;
+            background-color: salmon;
+            font-family: 'Permanent Marker', cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+    </div>
+    <script>
+        const containerEl = document.querySelector(".container");
+
+
+        const careers = ["YouTuber", "Web Developer", "Frelancer", "Intructor"]
+
+        let careerIndex = 0;
+        let characterIndex = 0;
+
+        updateText();
+
+        function updateText(){
+            characterIndex++
+            containerEl.innerHTML = `<h1>I am ${careers[careerIndex].slice(0,1) === "I"  ? "an" :"a" }  ${careers[careerIndex].slice(0, characterIndex)}</h1>
+        `;
+       
+        if(characterIndex === careers[careerIndex].length){
+            careerIndex++ 
+            characterIndex = 0
+        }
+        if(careerIndex === careers.length){
+            careerIndex = 0;
+        }
+        setTimeout(updateText, 400)
+        }
+
+
+       
+    </script>
+</body>
+</html>

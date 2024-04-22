@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky nav bar</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .top-container{
+            background-image: url("compter.avif");
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+
+        }
+        .top-container h1{
+            color: white;
+            font-size: 50px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 2px;
+
+
+        }
+        .text{
+            margin: 50px 5%;
+            font-family: sans-serif;
+
+        }
+        .navbar{
+            display: flex;
+            position: fixed;
+            background-color: white;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,.3);
+
+        }
+        .navbar ul{
+            display: flex;
+            list-style-type: none;
+        }
+        .navbar ul li a{
+            text-decoration: none;
+            margin:0 10px;
+            color: black;
+            font-family: cursive;
+        }
+        .navbar ul li a:hover{
+            color: red;
+        }
+        .navbar.active{
+            background-color: red;
+        }
+        .navbar.active ul li a{
+            color: white;
+        }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="navbar ">
+        <a href="/Sticky Nav bar.html"></a>
+      <img src="logo.svg.svg" />
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="top-container">
+      <h1>Welcome to our website</h1>
+    </div>
+    <div class="bottom-container">
+      <p class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta,
+        ratione fugiat dolores distinctio iusto illum provident, neque
+        asperiores, repudiandae eius aliquam? Error culpa temporibus iure! Sequi
+        omnis maxime porro cupiditate mollitia blanditiis, sit facere
+        repudiandae! Ratione enim ipsum, reiciendis rem inventore unde deserunt
+        perspiciatis voluptatibus nostrum saepe in doloribus temporibus totam
+        vitae! Numquam, asperiores amet atque quia quae, voluptates minus
+        commodi aliquid laboriosam reiciendis, delectus similique cupiditate
+        quidem libero porro! Adipisci laboriosam aliquam assumenda. Ad beatae
+        alias iste ut delectus in tempora , iure unde dolore labore ipsam
+        expedita fugit suscipit recusandae! At minus reprehenderit dolorum
+        corporis dignissimos? Earum, perferendis?
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta,
+        ratione fugiat dolores distinctio iusto illum provident, neque
+        asperiores, repudiandae eius aliquam? Error culpa temporibus iure! Sequi
+        omnis maxime porro cupiditate mollitia blanditiis, sit facere
+        repudiandae! Ratione enim ipsum, reiciendis rem inventore unde deserunt
+        perspiciatis voluptatibus nostrum saepe in doloribus temporibus totam
+        vitae! Numquam, asperiores amet atque quia quae, voluptates minus
+        commodi aliquid laboriosam reiciendis, delectus similique cupiditate
+        quidem libero porro! Adipisci laboriosam aliquam assumenda. Ad beatae
+        alias iste ut delectus in tempora , iure unde dolore labore ipsam
+        expedita fugit suscipit recusandae! At minus reprehenderit dolorum
+        corporis dignissimos? Earum, perferendis?
+      </p>
+      <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia 
+        dicta, ratione fugiat dolores distinctio iusto illum provident, neque
+         asperiores, repudiandae eius aliquam? Error culpa temporibus iure! Sequi
+          omnis maxime porro cupiditate mollitia blanditiis, sit facere repudiandae! 
+          Ratione enim ipsum, reiciendis rem inventore unde deserunt perspiciatis 
+          voluptatibus nostrum saepe in doloribus temporibus totam vitae! Numquam,
+           asperiores amet atque quia quae, voluptates minus commodi aliquid 
+           laboriosam
+           reiciendis, delectus similique cupiditate quidem libero porro! Adipisci
+            laboriosam aliquam assumenda. Ad beatae alias iste ut delectus in tempora
+            , iure unde dolore labore ipsam expedita fugit suscipit recusandae! 
+        At minus reprehenderit dolorum corporis dignissimos? Earum, perferendis?</p>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia 
+            dicta, ratione fugiat dolores distinctio iusto illum provident, neque
+             asperiores, repudiandae eius aliquam? Error culpa temporibus iure! Sequi
+              omnis maxime porro cupiditate mollitia blanditiis, sit facere repudiandae! 
+              Ratione enim ipsum, reiciendis rem inventore unde deserunt perspiciatis 
+              voluptatibus nostrum saepe in doloribus temporibus totam vitae! Numquam,
+               asperiores amet atque quia quae, voluptates minus commodi aliquid 
+               laboriosam
+               reiciendis, delectus similique cupiditate quidem libero porro! Adipisci
+                laboriosam aliquam assumenda. Ad beatae alias iste ut delectus in tempora
+                , iure unde dolore labore ipsam expedita fugit suscipit recusandae! 
+            At minus reprehenderit dolorum corporis dignissimos? Earum, perferendis?</p>
+    </div>
+
+    <script>
+        const navbarEl = document.querySelector(".navbar");
+        const bottomContainerEl = document.querySelector(".bottom-container");
+        console.log(navbarEl.offsetHeight);
+        console.log(bottomContainerEl.offsetTop);
+        
+                   
+
+        window.addEventListener("scroll", ()=>{
+            if(window.scrollY > bottomContainerEl.offsetTop - navbarEl.offsetHeight
+            - 50){
+                navbarEl.classList.add("active");
+            }else{
+                navbarEl.classList.remove("active");
+            }
+         
+        });
+    </script>
+  </body>
+</html>

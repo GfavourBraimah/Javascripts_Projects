@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background-color: wheat;
+        }
+
+        .slider-container{
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0, 0, .3);
+            position: relative;
+
+        }
+
+        .image-container{
+            display: flex;
+            transition: transform 0.4s;
+            
+        }
+
+        .btn{
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 20px;
+            transform: translateY(-50);
+            opacity: .5;
+            cursor: pointer;
+        }
+
+        .btn.prev{
+            left: 10px;
+        }
+
+        .btn.next{
+            right: 10px;
+        }
+
+        .btn:hover{
+            opacity: 1;
+        }
+    </style>
+    <title>Image slider</title>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="image-container">
+        <img src="https://picsum.photos/id/237/500/300" alt="image" />
+        <img src="https://picsum.photos/id/1/500/300" alt="image" />
+        <img src="https://picsum.photos/id/10/500/300" alt="image" />
+        <img src="https://picsum.photos/id/20/500/300" alt="image" />
+      </div>
+      <i class="fa-solid fa-angles-left btn prev"></i>
+      <i class="fa-solid fa-angles-right btn next"></i>
+    </div>
+    <script>
+        const sliderContainerEl = document.querySelector(".slider-container")
+        const imageContainerEl = document.querySelector(".image-container")
+        const prevEl = document.querySelector(".prev")
+        const nextEl = document.querySelector(".next")
+        const imgsEl = document.querySelector("img")
+
+       
+
+
+        let currentImg = 1;
+        let timeout;
+
+
+        nextEl.addEventListener("click", ()=>{
+            currentImg++
+            updateImg();
+            clearTimeout(timeout);
+        });
+
+        prevEl.addEventListener("click", ()=>{
+        currentImg--
+        updateImg()
+        })
+
+        function updateImg(){
+            if(currentImg > imgsEl.length){
+                currentImg = 1;
+            }else if
+                (currentImg < 1){
+                    currentImg = imgsEl.length;
+                
+            }
+            imageContainerEl.style.transform = `translateX(-${(currentImg - 1) * 500}px)`
+            timeout = setTimeout(()=>{
+                currentImg++ 
+                updateImg()
+            }, 3000)
+        }
+
+
+    </script>
+  </body>
+</html>

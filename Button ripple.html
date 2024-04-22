@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button ripple</title>
+    <style>
+        body{
+            margin: 0;
+            justify-content: center;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            background-color: aliceblue;
+            font-family: sans-serif;
+        }
+        .btn{
+            background-color: pink;
+            padding: 20px 40px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+
+        }
+        .btn::before{
+            content: "";
+            position: absolute;
+            background-color: orangered;
+            width: 0px;
+            height: 0px;
+            left: var(--xPos);
+            top: var(--yPos);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.5s, height 0.5s;
+
+        }
+        .btn:hover::before{
+            width: 300px;
+            height: 300px;
+        }
+        span{
+            position: relative;
+            z-index: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+    <a href="#" class="btn"><span>Button</span></a>
+
+
+
+
+
+
+    <script>
+        const btnEl = document.querySelector(".btn");
+
+        btnEl.addEventListener("mouseover", (event) => {
+            const x =event.pageX - btnEl.offsetLeft;
+            const y = event.pageY - btnEl.offsetTop;
+
+            btnEl.style.setProperty("--xPos", x + "px");
+            btnEl.style.setProperty("--yPos", y + "px");
+        });
+
+    </script>
+</body>
+</html>

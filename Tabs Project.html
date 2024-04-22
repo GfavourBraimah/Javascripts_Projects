@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #f5abc9;
+        color: gray;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        height: 30rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-center {
+        width: 90vw;
+        margin: 0 auto;
+        max-width: 1170px;
+        min-width: 340px;
+        padding: 5rem 0;
+      }
+
+      .tabs {
+        background-color: #ffe5e2;
+        border-radius: 0.5rem;
+        grid-template-rows: auto 1fr;
+      }
+
+      .button {
+        padding: 1rem 0;
+        border: none;
+        font-size: 1rem;
+        background: #b6c9f0;
+        cursor: pointer;
+        transition: all 0.3s linear;
+        letter-spacing: 0.25rem;
+      }
+      .btn-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .button:nth-child(1) {
+        border-top-left-radius: 0.5rem;
+      }
+
+      .button:nth-child(3) {
+        border-bottom-right-radius: 0.5rem;
+      }
+
+      .button:hover:not(.live) {
+        background: #e93b81;
+        color: white;
+      }
+
+      .tabs-content {
+        padding: 2rem 1.5rem;
+      }
+
+      @media (min-width: 992px) {
+        .image {
+          margin-bottom: 0;
+        }
+        .section-center {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 2rem;
+        }
+      }
+
+      .content{
+        display: none;
+      }
+
+      .content.live{
+        display: block;
+      }
+
+      .button.live{
+        background: #ffe5e2;
+      }
+    </style>
+
+    <title>Tabs Projects</title>
+  </head>
+  <body>
+    <div class="section-center">
+      <div class="image">
+        <img
+          src="https://cdn.wallpapersafari.com/32/57/5kRldb.jpg"
+          alt="image"
+        />
+      </div>
+      <div class="tabs">
+        <div class="btn-container">
+          <button class="button live" data-id="step1">Step 1</button>
+          <button class="button " data-id="step2">Step 2</button>
+          <button class="button" data-id="step3">Step 3</button>
+          </div>
+        
+
+        <div class="tabs-content">
+          <div class="content live " id="step1">
+            <h3>Step 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              fugit quae doloribus animi velit maxime ratione, dolor, veniam
+              quam eaque deleniti accusantium. Dolor nesciunt sit impedit.
+              Eveniet rerum non architecto consequatur quasi vitae at
+              consequuntur magnam. Optio voluptatem unde atque alias aspernatur
+              deleniti sunt rem eum quis? Fugit blanditiis dolore voluptas
+              voluptatibus dignissimos iste necessitatibus itaque saepe
+              excepturi, repudiandae odit cum ipsa consequuntur nisi. Eligendi
+              commodi facere reiciendis! Unde vel nesciunt distinctio sunt
+              libero qui sit, ipsa assumenda, quam porro tempora rerum nihil
+              illo eveniet dolorem minus magnam voluptate iste possimus modi
+              molestias incidunt, rem illum? Omnis alias nulla distinctio?
+            </p>
+            </div>
+          <div class="content" id="step2">
+            <h3>Step 2</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              fugit quae doloribus animi velit maxime ratione, dolor, veniam
+              quam eaque deleniti accusantium. Dolor nesciunt sit impedit.
+              Eveniet rerum non architecto consequatur quasi vitae at
+              consequuntur magnam. Optio voluptatem unde atque alias aspernatur
+              deleniti sunt rem eum quis? Fugit blanditiis dolore voluptas
+              voluptatibus dignissimos iste necessitatibus itaque saepe
+              excepturi, repudiandae odit cum ipsa consequuntur nisi. Eligendi
+              commodi facere reiciendis! Unde vel nesciunt distinctio sunt
+              libero qui sit, ipsa assumenda, quam porro tempora rerum nihil
+              illo eveniet dolorem minus magnam voluptate iste possimus modi
+              molestias incidunt, rem illum? Omnis alias nulla distinctio?
+            </p>
+        </div>
+          <div class="content " id="step3">
+            <h3>Step 3 </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              fugit quae doloribus animi velit maxime ratione, dolor, veniam
+              quam eaque deleniti accusantium. Dolor nesciunt sit impedit.
+              Eveniet rerum non architecto consequatur quasi vitae at
+              consequuntur magnam. Optio voluptatem unde atque alias aspernatur
+              deleniti sunt rem eum quis? Fugit blanditiis dolore voluptas
+              voluptatibus dignissimos iste necessitatibus itaque saepe
+              excepturi, repudiandae odit cum ipsa consequuntur nisi. Eligendi
+              commodi facere reiciendis! Unde vel nesciunt distinctio sunt
+              libero qui sit, ipsa assumenda, quam porro tempora rerum nihil
+              illo eveniet dolorem minus magnam voluptate iste possimus modi
+              molestias incidunt, rem illum? Omnis alias nulla distinction
+            </p>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+       
+        const tabs = document.querySelector(".tabs");
+        const btns = document.querySelectorAll(".button");
+        const articles = document.querySelectorAll(".content");
+
+
+    tabs.addEventListener("click", (event)=>{
+        const id = event.target.dataset.id;
+
+        if(id){
+            btns.forEach((btn) => {
+                btn.classList.remove("live")
+            });
+            event.target.classList.add("live");
+            articles.forEach((article)=>{
+                article.classList.remove("live");
+            });
+            const element = document.getElementById(id)
+            element.classList.add("live")
+        }
+    });
+    </script>
+  </body>
+</html>
